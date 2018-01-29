@@ -1,0 +1,44 @@
+data weight2;                     
+   input IDnumber $ Week1 Week16;  
+   WeightLoss2=Week1-Week16;       
+   datalines;             
+2477 195  1
+2431 220  2
+2456 173  3
+2412 135  4
+;   
+
+%let n1=1;
+%let n2=2;
+%let n3=3;
+%let n4=4;
+
+
+%let '1'=1;
+%let 2=2;
+%let 3=3;
+%let 4=4;
+
+
+%macro k();
+data weight4;
+set weight2;
+seq=_N_;
+run;
+%macro k();
+data weight5;
+set weight4;
+/*k=_N_;*/
+/*new=lag&&n1(Week1);*/
+K=&&n||'Week 16';
+/*new1=lag&&n&_N_(Week1);*/
+new2=lag_N_(Week1);
+run;
+%mend;
+	
+%k;
+
+
+
+
+
